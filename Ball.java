@@ -1,5 +1,3 @@
-import com.sun.tools.javac.Main;
-
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
@@ -7,19 +5,6 @@ import java.awt.*;
 import java.io.File;
 
 class Ball {
-
-//    public static Clip clip;
-//
-//    static {
-//        try {
-//            AudioInputStream audio = AudioSystem.getAudioInputStream(new File("QKTA234-pop.wav").getAbsoluteFile());
-//            clip = AudioSystem.getClip();
-//            clip.open(audio);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
-
     private float radius;
     private float diameter;
 
@@ -61,21 +46,32 @@ class Ball {
         if (x - radius < 0) {
             dx = -dx;
             x = radius;
-//            clip.start();
+            playSound();
         } else if (x + radius > width) {
             dx = -dx;
             x = width - radius;
-//            clip.start();
+            playSound();
         }
 
         if (y - radius < 0) {
             dy = -dy;
             y = radius;
-//            clip.start();
+            playSound();
         } else if (y + radius > height) {
             dy = -dy;
             y = height - radius;
-//            clip.start();
+            playSound();
+        }
+    }
+
+    private static void playSound() {
+        try {
+            AudioInputStream audio = AudioSystem.getAudioInputStream(new File("QKTA234-pop.wav").getAbsoluteFile());
+            Clip clip = AudioSystem.getClip();
+            clip.open(audio);
+            clip.start();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
