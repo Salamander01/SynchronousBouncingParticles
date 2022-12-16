@@ -15,15 +15,10 @@ public class Main {
             animation.step();
             try {
                 Thread.sleep(20);
-            } catch (Exception exc) {
-                System.out.println("Something went wrong with the thread.");
+            } catch (Exception e) {
+                System.out.println("Something went wrong with the sleep command.");
+                e.printStackTrace();
             }
         }
     }
-
-    static Random rand = new Random();
-
-    public static int randInt(int start, int end) {
-        return rand.nextInt(end - start) + start;
-    }
-}
+    
