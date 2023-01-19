@@ -7,8 +7,8 @@ public class Main {
         MainAnimation animation = new MainAnimation();
         for (int i = 1; i <= 24; i++) {
             for (int j = 1; j <= 12; j++) {
-                Color color = new Color(i *  10, 0, 255);
-                animation.addBall(10,  0, 0, (float) i / 2, (float) j / 2, color);
+                Color color = new Color(i * 10, 0, 255);
+                animation.addBall(10, 0, 0, (float) i / 2, (float) j / 2, color);
             }
         }
         while (true) {
@@ -21,4 +21,4 @@ public class Main {
             }
         }
     }
-    
+}
