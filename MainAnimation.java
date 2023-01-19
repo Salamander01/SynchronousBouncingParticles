@@ -3,9 +3,7 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class MainAnimation extends JPanel {
-    private ArrayList<Ball> balls;
-
-    private int width, height;
+    private final ArrayList<Ball> balls;
 
     public MainAnimation() {
         this.balls = new ArrayList<>();
@@ -23,8 +21,8 @@ public class MainAnimation extends JPanel {
     }
 
     public void step() {
-        this.width = getWidth();
-        this.height = getHeight();
+        int width = getWidth();
+        int height = getHeight();
 
         for (Ball ball : balls) {
             ball.step(width, height);
@@ -37,7 +35,7 @@ public class MainAnimation extends JPanel {
         super.paintComponent(g);
         for (Ball ball : balls) {
             g.setColor(ball.getColor());
-            g.fillOval((int)(ball.getX() - ball.getRadius()), (int)(ball.getY() - ball.getRadius()), (int) ball.getDiameter(), (int) ball.getDiameter());
+            g.fillOval((int) (ball.getX() - ball.getRadius()), (int) (ball.getY() - ball.getRadius()), (int) ball.getDiameter(), (int) ball.getDiameter());
         }
     }
 

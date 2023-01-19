@@ -5,8 +5,8 @@ import java.awt.*;
 import java.io.File;
 
 class Ball {
-    private float radius;
-    private float diameter;
+    private final float radius;
+    private final float diameter;
 
     private float x;
     private float y;
@@ -37,6 +37,17 @@ class Ball {
         this.color = color;
     }
 
+    private static void playSound() {
+        try {
+            AudioInputStream audio = AudioSystem.getAudioInputStream(new File("QKTA234-pop.wav").getAbsoluteFile());
+            Clip clip = AudioSystem.getClip();
+            clip.open(audio);
+            clip.start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     protected void step(int width, int height) {
         IncrementColor();
 
@@ -64,18 +75,7 @@ class Ball {
         }
     }
 
-    private static void playSound() {
-        try {
-            AudioInputStream audio = AudioSystem.getAudioInputStream(new File("QKTA234-pop.wav").getAbsoluteFile());
-            Clip clip = AudioSystem.getClip();
-            clip.open(audio);
-            clip.start();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    protected  Color getColor() {
+    protected Color getColor() {
         return color;
     }
 
