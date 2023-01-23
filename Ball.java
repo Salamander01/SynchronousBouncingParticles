@@ -57,21 +57,21 @@ class Ball {
         if (x - radius < 0) {
             dx = -dx;
             x = radius;
-            playSound();
+//            playSound();
         } else if (x + radius > width) {
             dx = -dx;
             x = width - radius;
-            playSound();
+//            playSound();
         }
 
         if (y - radius < 0) {
             dy = -dy;
             y = radius;
-            playSound();
+//            playSound();
         } else if (y + radius > height) {
             dy = -dy;
             y = height - radius;
-            playSound();
+//            playSound();
         }
     }
 

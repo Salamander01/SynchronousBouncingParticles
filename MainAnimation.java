@@ -10,11 +10,10 @@ public class MainAnimation extends JPanel {
 
         setBackground(Color.BLACK);
 
-        JFrame.setDefaultLookAndFeelDecorated(true);
         JFrame frame = new JFrame("Main Animation");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 //        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        frame.setSize(1200, 600);
+        frame.setSize(1216, 639);
         frame.setResizable(false);
         frame.setContentPane(this);
         frame.setVisible(true);
@@ -23,6 +22,8 @@ public class MainAnimation extends JPanel {
     public void step() {
         int width = getWidth();
         int height = getHeight();
+
+//        System.out.println("Width: " + width + " : " + "Height: " + height);
 
         for (Ball ball : balls) {
             ball.step(width, height);
