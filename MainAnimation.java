@@ -14,7 +14,7 @@ public class MainAnimation extends JPanel {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-//        frame.setSize(1216, 639);
+        
         frame.setResizable(true);
 
         frame.setContentPane(this);
