@@ -29,9 +29,12 @@ class Ball {
     protected void step(int width, int height) {
         IncrementColor();
 
-        printStuff();
+//        if (Main.DEBUG) printStuff();
 
-        if (x.subtract(new BigDecimal(radius)).compareTo(new BigDecimal(0)) == 0) {
+        x = x.add(dx);
+        y = y.add(dy);
+
+        if (x.subtract(new BigDecimal(radius)).compareTo(new BigDecimal(0)) == -1) {
             if (Main.DEBUG) {
                 System.out.print("x - radius : " + x.subtract(new BigDecimal(radius)) + " | ");
                 printStuff();
@@ -39,7 +42,7 @@ class Ball {
             dx = dx.negate();
             x = new BigDecimal(radius);
 //            Ball.playSound();
-        } else if (x.add(new BigDecimal(radius)).equals(new BigDecimal())) { // TODO
+        } else if (x.add(new BigDecimal(radius)).compareTo(new BigDecimal(width)) == 1) {
             if (Main.DEBUG) {
                 System.out.print("x + radius : " + x.add(new BigDecimal(radius)) + " | ");
                 printStuff();
@@ -49,7 +52,7 @@ class Ball {
 //            Ball.playSound();
         }
 
-        if (y.subtract(new BigDecimal(radius)).doubleValue() < 0) { // TODO
+        if (y.subtract(new BigDecimal(radius)).compareTo(new BigDecimal(0)) == -1) {
             if (Main.DEBUG) {
                 System.out.print("y - radius : " + y.subtract(new BigDecimal(radius)) + " | ");
                 printStuff();
@@ -57,7 +60,7 @@ class Ball {
             dy = dy.negate();
             y = new BigDecimal(radius);
 //            Ball.playSound();
-        } else if (y.add(new BigDecimal(radius)).doubleValue() > height) { // TODO
+        } else if (y.add(new BigDecimal(radius)).compareTo(new BigDecimal(height)) == 1) {
             if (Main.DEBUG) {
                 System.out.print("y + radius : " + y.add(new BigDecimal(radius)) + " | ");
                 printStuff();
@@ -66,9 +69,6 @@ class Ball {
             y = new BigDecimal(height - radius);
 //            Ball.playSound();
         }
-
-        x = x.add(dx);
-        y = y.add(dy);
 
     }
 
