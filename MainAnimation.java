@@ -31,6 +31,8 @@ public class MainAnimation extends JPanel {
             ball.step(width, height);
         }
 
+        if (Main.DEBUG) System.out.println("\nBREAK!!");
+
         repaint();
     }
 
