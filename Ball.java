@@ -1,6 +1,4 @@
-import javax.sound.sampled.*;
 import java.awt.*;
-import java.io.File;
 import java.math.BigDecimal;
 
 class Ball {
@@ -34,40 +32,40 @@ class Ball {
         x = x.add(dx);
         y = y.add(dy);
 
-        if (x.subtract(new BigDecimal(radius)).compareTo(new BigDecimal(0)) == -1) {
+        if (x.subtract(new BigDecimal(radius)).compareTo(new BigDecimal(0)) < 0) {
             if (Main.DEBUG) {
                 System.out.print("x - radius : " + x.subtract(new BigDecimal(radius)) + " | ");
                 printStuff();
             }
             dx = dx.negate();
             x = new BigDecimal(radius);
-//            Ball.playSound();
-        } else if (x.add(new BigDecimal(radius)).compareTo(new BigDecimal(width)) == 1) {
+            Ball.playSound();
+        } else if (x.add(new BigDecimal(radius)).compareTo(new BigDecimal(width)) > 0) {
             if (Main.DEBUG) {
                 System.out.print("x + radius : " + x.add(new BigDecimal(radius)) + " | ");
                 printStuff();
             }
             dx = dx.negate();
             x = new BigDecimal(width - radius);
-//            Ball.playSound();
+            Ball.playSound();
         }
 
-        if (y.subtract(new BigDecimal(radius)).compareTo(new BigDecimal(0)) == -1) {
+        if (y.subtract(new BigDecimal(radius)).compareTo(new BigDecimal(0)) < 0) {
             if (Main.DEBUG) {
                 System.out.print("y - radius : " + y.subtract(new BigDecimal(radius)) + " | ");
                 printStuff();
             }
             dy = dy.negate();
             y = new BigDecimal(radius);
-//            Ball.playSound();
-        } else if (y.add(new BigDecimal(radius)).compareTo(new BigDecimal(height)) == 1) {
+            Ball.playSound();
+        } else if (y.add(new BigDecimal(radius)).compareTo(new BigDecimal(height)) > 0) {
             if (Main.DEBUG) {
                 System.out.print("y + radius : " + y.add(new BigDecimal(radius)) + " | ");
                 printStuff();
             }
             dy = dy.negate();
             y = new BigDecimal(height - radius);
-//            Ball.playSound();
+            Ball.playSound();
         }
 
     }

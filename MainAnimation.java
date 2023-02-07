@@ -22,7 +22,7 @@ public class MainAnimation extends JPanel {
         frame.setVisible(true);
     }
 
-    public void step() {
+    public synchronized void step() {
         int width = getWidth();
         int height = getHeight();
 
@@ -37,7 +37,7 @@ public class MainAnimation extends JPanel {
         repaint();
     }
 
-    public void paintComponent(Graphics g) {
+    public synchronized void paintComponent(Graphics g) {
         super.paintComponent(g);
         for (Ball ball : balls) {
             g.setColor(ball.getColor());
