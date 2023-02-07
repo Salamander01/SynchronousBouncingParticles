@@ -1,21 +1,22 @@
 import javax.sound.sampled.*;
 import java.awt.*;
 import java.io.File;
+import java.math.BigDecimal;
 
 class Ball {
-    private final float radius;
-    private final float diameter;
+    private final int radius;
+    private final int diameter;
 
-    private float x;
-    private float y;
+    private BigDecimal x;
+    private BigDecimal y;
 
-    private float dx;
-    private float dy;
+    private BigDecimal dx;
+    private BigDecimal dy;
 
     private Color color;
 
 
-    public Ball(float radius, float startX, float startY, float dx, float dy, Color color) {
+    public Ball(int radius, BigDecimal startX, BigDecimal startY, BigDecimal dx, BigDecimal dy, Color color) {
         this.radius = radius;
         this.diameter = radius * 2;
         this.x = startX;
@@ -28,28 +29,40 @@ class Ball {
     protected void step(int width, int height) {
         IncrementColor();
 
-        x = x + dx;
-        y = y + dy;
+        x = x.add(dx);
+        y = y.add(dy);
 
-        if (x - radius < 0) {
+        if (x.subtract(new BigDecimal(radius)).doubleValue() < 0) {
+            System.out.print("x - radius : " + (x.subtract(new BigDecimal(radius))) + " | ");
+            printStuff();
             dx = -dx;
             x = radius;
             Ball.playSound();
         } else if (x + radius > width) {
+            System.out.print("x + radius : " + (x + radius) + " | ");
+            printStuff();
             dx = -dx;
             x = width - radius;
             Ball.playSound();
         }
 
         if (y - radius < 0) {
+            System.out.print("y - radius : " + (y - radius) + " | ");
+            printStuff();
             dy = -dy;
             y = radius;
             Ball.playSound();
         } else if (y + radius > height) {
+            System.out.print("y + radius : " + (y + radius) + " | ");
+            printStuff();
             dy = -dy;
             y = height - radius;
             Ball.playSound();
         }
+    }
+
+    private void printStuff() {
+        System.out.println("dx: " + dx + " | dy: " + dy + " | x: " + x + " | y: " + y);
     }
 
     protected Color getColor() {
