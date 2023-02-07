@@ -29,36 +29,47 @@ class Ball {
     protected void step(int width, int height) {
         IncrementColor();
 
+        printStuff();
+
+        if (x.subtract(new BigDecimal(radius)).compareTo(new BigDecimal(0)) == 0) {
+            if (Main.DEBUG) {
+                System.out.print("x - radius : " + x.subtract(new BigDecimal(radius)) + " | ");
+                printStuff();
+            }
+            dx = dx.negate();
+            x = new BigDecimal(radius);
+//            Ball.playSound();
+        } else if (x.add(new BigDecimal(radius)).equals(new BigDecimal())) { // TODO
+            if (Main.DEBUG) {
+                System.out.print("x + radius : " + x.add(new BigDecimal(radius)) + " | ");
+                printStuff();
+            }
+            dx = dx.negate();
+            x = new BigDecimal(width - radius);
+//            Ball.playSound();
+        }
+
+        if (y.subtract(new BigDecimal(radius)).doubleValue() < 0) { // TODO
+            if (Main.DEBUG) {
+                System.out.print("y - radius : " + y.subtract(new BigDecimal(radius)) + " | ");
+                printStuff();
+            }
+            dy = dy.negate();
+            y = new BigDecimal(radius);
+//            Ball.playSound();
+        } else if (y.add(new BigDecimal(radius)).doubleValue() > height) { // TODO
+            if (Main.DEBUG) {
+                System.out.print("y + radius : " + y.add(new BigDecimal(radius)) + " | ");
+                printStuff();
+            }
+            dy = dy.negate();
+            y = new BigDecimal(height - radius);
+//            Ball.playSound();
+        }
+
         x = x.add(dx);
         y = y.add(dy);
 
-        if (x.subtract(new BigDecimal(radius)).doubleValue() < 0) {
-            System.out.print("x - radius : " + (x.subtract(new BigDecimal(radius))) + " | ");
-            printStuff();
-            dx = -dx;
-            x = radius;
-            Ball.playSound();
-        } else if (x + radius > width) {
-            System.out.print("x + radius : " + (x + radius) + " | ");
-            printStuff();
-            dx = -dx;
-            x = width - radius;
-            Ball.playSound();
-        }
-
-        if (y - radius < 0) {
-            System.out.print("y - radius : " + (y - radius) + " | ");
-            printStuff();
-            dy = -dy;
-            y = radius;
-            Ball.playSound();
-        } else if (y + radius > height) {
-            System.out.print("y + radius : " + (y + radius) + " | ");
-            printStuff();
-            dy = -dy;
-            y = height - radius;
-            Ball.playSound();
-        }
     }
 
     private void printStuff() {
@@ -69,12 +80,12 @@ class Ball {
         return this.color;
     }
 
-    protected float getX() {
-        return this.x;
+    protected double getX() {
+        return this.x.doubleValue();
     }
 
-    protected float getY() {
-        return this.y;
+    protected double getY() {
+        return this.y.doubleValue();
     }
 
     protected float getRadius() {

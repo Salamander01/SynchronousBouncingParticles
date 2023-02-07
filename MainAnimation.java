@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 
 public class MainAnimation extends JPanel {
@@ -44,7 +45,7 @@ public class MainAnimation extends JPanel {
         }
     }
 
-    public void addBall(float radius, float startX, float startY, float dx, float dy, Color color) {
-        this.balls.add(new Ball(radius, startX, startY, dx, dy, color));
+    public void addBall(int radius, BigDecimal dx, BigDecimal dy, Color color) {
+        this.balls.add(new Ball(radius, new BigDecimal(radius), new BigDecimal(radius), dx, dy, color));
     }
 }
