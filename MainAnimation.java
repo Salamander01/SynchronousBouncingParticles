@@ -1,3 +1,4 @@
+
 import javax.swing.*;
 import java.awt.*;
 import java.math.BigDecimal;
@@ -28,7 +29,7 @@ public class MainAnimation extends JPanel {
         frame.setVisible(true);
     }
 
-    public synchronized void step() {
+    public synchronized void drawFrame() {
         // Get the width and the height for collision checking
         int width = getWidth();
         int height = getHeight();
@@ -36,9 +37,9 @@ public class MainAnimation extends JPanel {
         // Debug print
         if (Main.DEBUG) System.out.println("Width: " + width + " : " + "Height: " + height);
 
-        // For each particle call the particle.step() method to update and progress the animation.
+        // For each particle call the particle.update() method to update and progress the animation.
         for (Particle particle : particles) {
-            particle.step(width, height);
+            particle.update(width, height);
         }
 
         // Debug print

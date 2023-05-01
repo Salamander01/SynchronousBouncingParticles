@@ -1,3 +1,4 @@
+
 import java.awt.*;
 import java.math.BigDecimal;
 
@@ -34,7 +35,7 @@ class Particle {
         // Probably would need to be threaded.
     }
 
-    protected void step(int width, int height) {
+    protected void update(int width, int height) {
         // Increment the color
         IncrementColor();
 

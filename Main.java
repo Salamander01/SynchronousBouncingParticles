@@ -1,3 +1,4 @@
+
 import java.awt.*;
 import java.math.BigDecimal;
 import java.util.concurrent.Executors;
@@ -7,6 +8,29 @@ import java.util.concurrent.TimeUnit;
 import static java.lang.Math.round;
 
 public class Main {
+
+    /*
+    Strings: Not exactly used in this project. I'll be including another project that fulfills this requirement.
+        Some concatenation examples are on line 48 in this file and lines 60 and 61.
+    Variables names:
+        Lines 7-16 in Particle.java has some good examples.
+    Functions/Methods:
+        Line 31 in MainAnimation.java is a good example. There are more examples in Particle.java
+    Loops:
+        The only while loop is on line 45 of this file, and it is used as a sort of wait to prevent the program from going on before some initialization is done.
+        There is a nested standard for loop on line 65 and 66 of this file that creates all the particles and the color gradient.
+        There is a good example of a foreach loop on line 41 of MainAnimation.java
+    Conditionals:
+        Lines 47 and 82 in Particle.java are some good examples.
+    User Input: Not included in this program. I'll include another project that fulfills this requirement.
+    Produce output to the console: Only happens when DEBUG is set to true. Look at lines 48, 60, and 61 in this file for some examples.
+        There are more examples in the other classes.
+        The other project I'm including does this better. If the output doesn't need to be to the console I think this project fulfills the requirement.
+    List/Array/Vector:
+        Line 8 of MainAnimation is an ArrayList of all the Particles; used to iterate over all the Particles in foreach loops.
+    Class/Objects:
+        The best overall example is probably Particle.java, although MainAnimation.java does include a bit of inheritance.
+     */
 
     // Constants
     final static boolean DEBUG = false;
@@ -18,7 +42,7 @@ public class Main {
         MainAnimation animation = new MainAnimation();
 
         // Wait until the windows width and height actually have values (otherwise following code break)
-        while (animation.getHeight() < 200 && animation.getWidth() < 200) ;
+        while (animation.getHeight() < 200 && animation.getWidth() < 200);
 
         // Debug print
         if (DEBUG) System.out.println(animation.getWidth() + " x " + animation.getHeight());
@@ -47,8 +71,8 @@ public class Main {
             }
         }
 
-        // Create a thread that will update the particles positions and redraw the screen every 20 milliseconds by calling animation.step()
+        // Create a thread that will update the particles positions and redraw the screen every 20 milliseconds by calling animation.drawFrame()
         ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
-        executor.scheduleAtFixedRate(animation::step, 5, 20, TimeUnit.MILLISECONDS);
+        executor.scheduleAtFixedRate(animation::drawFrame, 5, 20, TimeUnit.MILLISECONDS);
     }
 }
