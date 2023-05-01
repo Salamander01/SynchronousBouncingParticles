@@ -10,7 +10,7 @@ public class Main {
 
     // Constants
     final static boolean DEBUG = false;
-    final static double SPEED_MULTIPLIER = 0.2;
+    final static double SPEED_MULTIPLIER = 0.06;
     final static int BALL_RADIUS = 10;
 
     public static void main(String[] args) {
@@ -48,8 +48,7 @@ public class Main {
         }
 
         // Create a thread that will update the particles positions and redraw the screen every 20 milliseconds by calling animation.step()
-        try (ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor()) {
-            executor.scheduleAtFixedRate(animation::step, 5, 20, TimeUnit.MILLISECONDS);
-        }
+        ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
+        executor.scheduleAtFixedRate(animation::step, 5, 20, TimeUnit.MILLISECONDS);
     }
 }
