@@ -10,7 +10,7 @@ import static java.lang.Math.round;
 public class Main {
 
     /*
-    Strings: Not exactly used in this project. I'll be including another project that fulfills this requirement.
+    Strings: Not exactly used in this project.
         Some concatenation examples are on line 48 in this file and lines 60 and 61.
     Variables names:
         Lines 7-16 in Particle.java has some good examples.
@@ -22,10 +22,9 @@ public class Main {
         There is a good example of a foreach loop on line 41 of MainAnimation.java
     Conditionals:
         Lines 47 and 82 in Particle.java are some good examples.
-    User Input: Not included in this program. I'll include another project that fulfills this requirement.
+    User Input: Not included in this program.
     Produce output to the console: Only happens when DEBUG is set to true. Look at lines 48, 60, and 61 in this file for some examples.
         There are more examples in the other classes.
-        The other project I'm including does this better. If the output doesn't need to be to the console I think this project fulfills the requirement.
     List/Array/Vector:
         Line 8 of MainAnimation is an ArrayList of all the Particles; used to iterate over all the Particles in foreach loops.
     Class/Objects:
