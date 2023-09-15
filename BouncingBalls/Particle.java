@@ -1,3 +1,5 @@
+package BouncingBalls;
+
 import java.awt.*;
 import java.math.BigDecimal;
 
@@ -148,7 +150,7 @@ class Particle {
         int b = this.color.getBlue();
 
         // Can't really comment this because I don't really know how it works all that well.
-        // This code is mostly from my friend.
+        // This code is mostly from Brandon.
         if (r == 255 && g < 255 && b == 0) {
             g++;
         } else if (r > 0 && g == 255 && b == 0) {

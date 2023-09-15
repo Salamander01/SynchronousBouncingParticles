@@ -1,3 +1,5 @@
+package BouncingBalls;
+
 import java.awt.*;
 import java.math.BigDecimal;
 import java.util.concurrent.Executors;
@@ -14,7 +16,7 @@ public class Main {
     final static int BALL_RADIUS = 10;
 
     public static void main(String[] args) {
-        // Instantiate the MainAnimation to create the window
+        // Instantiate the BouncingBalls.MainAnimation to create the window
         MainAnimation animation = new MainAnimation();
 
         // Wait until the windows width and height actually have values (otherwise following code break)
