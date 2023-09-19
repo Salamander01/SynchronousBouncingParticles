@@ -5,15 +5,17 @@ import java.math.BigDecimal;
 
 class Particle {
 
+    // TODO EVERYTHING IS BROKEN
+
     // Attributes
     private final int radius;
     private final int diameter;
 
-    private BigDecimal x;
-    private BigDecimal y;
+    private int x;
+    private int y;
 
-    private BigDecimal dx;
-    private BigDecimal dy;
+    private int dx;
+    private int dy;
 
     private Color color;
 
